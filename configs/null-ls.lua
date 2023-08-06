@@ -7,8 +7,9 @@ local sources = {
   formatting.prettier,
   formatting.black,
   formatting.stylua,
+  formatting.shellharden,
 
-  lint.ruff,
+  lint.ruff
 }
 
 null_ls.setup {

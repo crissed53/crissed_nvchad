@@ -8,6 +8,7 @@ M.abc = {
       end,
       "toggle transparency"
     },
+    ["<C-n>"] = {"<cmd> Neotree <CR>", "Toggle Neotree"}
   }
 }
 

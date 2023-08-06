@@ -1,17 +1,23 @@
-local configs = require("plugins.configs.lspconfig")
-local on_attach = configs.on_attach
-local capabilities = configs.capabilities
+local lconfigs = require("plugins.configs.lspconfig")
+local on_attach = lconfigs.on_attach
+local capabilities = lconfigs.capabilities
 
-local lspconfig = require "lspconfig"
 local servers = {
   -- "mypy",
-  "pyright"
+  "pyright",
+  "bashls",
+  "volar",
+  "tailwindcss",
+  "tsserver",
+  "html"
 }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  require("lspconfig")[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+
+-- install helm ls
 
