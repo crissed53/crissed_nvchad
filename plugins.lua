@@ -13,7 +13,43 @@ local plugins = {
         "yaml",
         "python",
       },
+      autotag = {
+        enable = true
+      }
     },
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    lazy=false,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "prettierd",
+        "ruff",
+        "black",
+        "shellharden",
+        "stylua",
+        "eslint"
+      }
+    }
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "bashls",
+        "dockerls",
+        "helm_ls",
+        "pyright",
+        "tailwindcss",
+        -- "tsserver",
+        "volar",
+        "html",
+      }
+    }
   },
   {
     "neovim/nvim-lspconfig",
@@ -27,28 +63,6 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "mypy",
-        "black",
-        "ruff",
-        "prettier",
-        "html-lsp",
-        "stylua",
-        "pyright",
-        "helm-ls",
-        "bash-language-server",
-        "shfmt",
-        "shellharden",
-        "vue-language-server",
-        "tailwindcss-language-server",
-        "typescript-language-server",
-      },
-    },
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -120,6 +134,36 @@ local plugins = {
     config = function ()
       require("custom.configs.neo-tree")
     end
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        tailwind = true,
+        mode = "foreground",
+        always_update = true
+      }
+    }
+  },
+  {
+    'CRAG666/code_runner.nvim',
+    lazy = false,
+    opts = {
+      filetype = {
+        java = {
+          "cd $dir &&",
+          "javac $fileName &&",
+          "java $fileNameWithoutExt"
+        },
+        python = "python3 -u",
+        typescript = "deno run",
+        rust = {
+          "cd $dir &&",
+          "rustc $fileName &&",
+          "$dir/$fileNameWithoutExt"
+        },
+      },
+    }
   }
 }
 

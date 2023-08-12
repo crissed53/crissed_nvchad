@@ -8,7 +8,10 @@ M.abc = {
       end,
       "toggle transparency"
     },
-    ["<C-n>"] = {"<cmd> Neotree <CR>", "Toggle Neotree"}
+    ["<C-n>"] = {"<cmd> Neotree toggle <CR>", "Toggle Neotree"},
+    ["|"] = {"<cmd> vsplit <CR>", "split vertical"},
+    ["\\"] = {"<cmd> split <CR>", "split horizontal"},
+    ['<leader>rr'] = {"<cmd> RunCode<CR>"}
   }
 }
 
