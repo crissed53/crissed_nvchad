@@ -5,11 +5,17 @@ local lint = null_ls.builtins.diagnostics
 
 local sources = {
   formatting.prettierd,
-  formatting.black,
+  formatting.black.with({
+    extra_args = {"--preview", "-l", "80"}
+  }),
   formatting.stylua,
   formatting.shellharden,
+  formatting.isort.with({
+    extra_args = {"--profile", "black"}
+  }),
 
-  lint.ruff
+  lint.ruff,
+  lint.eslint
 }
 
 null_ls.setup {
